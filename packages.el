@@ -64,7 +64,9 @@
 (use-package ivy
   :ensure t
   :init
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  :config
+  (ivy-mode 1))
 
 (use-package counsel
   :ensure t)

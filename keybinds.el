@@ -69,13 +69,15 @@
   ;; buffers
   "bp"  'previous-buffer
   "bn"  'next-buffer
+  "bs"  'switch-to-buffer
   ;; config
   "ci" 'open-init
   "cp" 'open-packages
   "ck" 'open-keybinds
   "cd" 'open-defaults
+  "ct" 'counsel-load-theme
   ;; files
-  "ff" 'find-file
+  "ff" 'counsel-find-file
   ;; git
   "gs" 'magit-status
   ;; projects
