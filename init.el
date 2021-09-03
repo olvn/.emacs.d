@@ -1,5 +1,5 @@
 ;; Helpful links:
-;; 
+;;
 ;; - https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 ;; - https://dev.to/huytd/emacs-from-scratch-1cg6
 ;; - https://sam217pa.github.io/2016/09/13/from-helm-to-ivy/#fnref:2
@@ -71,4 +71,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
