@@ -25,3 +25,6 @@
 
 (setq split-height-threshold 80)
 (setq split-width-threshold 160)
+
+(column-number-mode)
+;; (global-display-line-numbers-mode t)

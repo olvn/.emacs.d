@@ -25,8 +25,7 @@
   :ensure t)
 
 (use-package acme-theme
-  :ensure t
-  :config (load-theme 'acme t))
+  :ensure t)
 
 (use-package evil
   :ensure t
@@ -37,17 +36,11 @@
     (evil-mode 1)
     (setq evil-default-cursor t)))
 
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
 (use-package which-key
   :ensure t
   :config
   (progn
-    (setq which-key-idle-delay 0.5)
+    (setq which-key-idle-delay 0.25)
     (which-key-setup-minibuffer)
     (which-key-mode +1)))
 
@@ -110,7 +103,8 @@
   (evil-define-key 'normal neotree-mode-map (kbd "H")
     'neotree-hidden-file-toggle))
 
-(use-package lispy)
+(use-package evil-lispy
+  :ensure t)
 
 ;; Project management
 (use-package projectile
@@ -145,6 +139,11 @@
   :config
   (global-evil-surround-mode 1))
 
+(use-package winum
+  :ensure t
+  :config
+  (winum-mode 1))
+
 (use-package general
   :ensure t)
 
@@ -153,7 +152,9 @@
   :init (doom-modeline-mode 1))
 
 (use-package clojure-mode
-  :ensure t)
+  :ensure t
+  :init
+  (add-hook 'clojure-mode-hook #'evil-lispy-mode))
 
 (use-package cider
   :ensure t)
@@ -166,6 +167,32 @@
   :ensure t)
 
 (use-package restart-emacs
+  :ensure t)
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-loader-install))
+
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
+
+(use-package darkroom
+  :ensure t)
+
+(use-package format-all
   :ensure t)
 
 (provide 'packages)
