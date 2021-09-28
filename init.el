@@ -34,7 +34,7 @@
  '(org-drill-mature-count-color "#005500")
  '(org-drill-new-count-color "#004488")
  '(package-selected-packages
-   '(evil-lispy format-all-buffer elpy darkroom pdf-tools rainbow-delimiters winum color-theme-modern xp-theme plan9-theme acme-theme parchment-theme restart-emacs evil-collection format-all neotree flx-ido flx magit org-mode lispy company flycheck cider clojure-mode doom-modeline srcery-theme use-package))
+   '(lispyville treemacs-persp treemacs-magit treemacs-projectile treemacs-evil treemacs dired-sidebar evil-lispy format-all-buffer elpy darkroom pdf-tools rainbow-delimiters winum color-theme-modern xp-theme plan9-theme acme-theme parchment-theme restart-emacs evil-collection format-all neotree flx-ido flx magit org-mode lispy company flycheck cider clojure-mode doom-modeline srcery-theme use-package))
  '(pdf-view-midnight-colors '("#000000" . "#ffffea"))
  '(projectile-mode t nil (projectile))
  '(rustic-ansi-faces

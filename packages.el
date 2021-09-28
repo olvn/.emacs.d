@@ -79,32 +79,15 @@
   :init
   (setq ranger-show-hidden t))
 
-(use-package neotree
-  :ensure t
-  :init
-  (setq ranger-show-hidden t)
-  :config
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB")
-    'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "SPC")
-    'neotree-quick-look)
-  (evil-define-key 'normal neotree-mode-map (kbd "q")
-    'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET")
-    'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "g")
-    'neotree-refresh)
-  (evil-define-key 'normal neotree-mode-map (kbd "n")
-    'neotree-next-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "p")
-    'neotree-previous-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "A")
-    'neotree-stretch-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "H")
-    'neotree-hidden-file-toggle))
+;; lisp
 
-(use-package evil-lispy
+(use-package lispy
   :ensure t)
+
+(use-package lispyville
+  :config
+  (lispyville-set-key-theme '(operators c-w additional slurp/barf-cp))
+  (add-hook 'lispy-mode-hook #'lispyville-mode))
 
 ;; Project management
 (use-package projectile
@@ -154,7 +137,7 @@
 (use-package clojure-mode
   :ensure t
   :init
-  (add-hook 'clojure-mode-hook #'evil-lispy-mode))
+  (add-hook 'clojure-mode-hook #'lispy-mode))
 
 (use-package cider
   :ensure t)
@@ -194,6 +177,33 @@
 
 (use-package format-all
   :ensure t)
+
+(use-package treemacs
+  :ensure t
+  :config
+  (progn
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-project-follow-mode t)
+    (setq treemacs-width 25
+	  treemacs-git-mode 'simple)))
+
+(use-package treemacs-projectile
+  :ensure t
+  :after (treemacs projectile))
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  :ensure t)
+
+;; (use-package treemacs-persp ;;treemacs-perspective if you use perspective.el vs. persp-mode
+;;   :after (treemacs persp-mode) ;;or perspective vs. persp-mode
+;;   :ensure t
+;;   :config (treemacs-set-scope-type 'Perspectives))
+
+(use-package treemacs-evil
+  :ensure t
+  :defer t)
 
 (provide 'packages)
 

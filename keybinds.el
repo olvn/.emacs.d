@@ -20,7 +20,8 @@
 (defun set-keys (key def &rest bindings)
   (while key
     (general-define-key
-     :states '(normal visual)
+     :states '(motion)
+     :keymaps 'override
      :prefix leader-key
      key def)
     (setq key (pop bindings) def (pop bindings))))
@@ -60,6 +61,18 @@
   (interactive)
   (find-file (expand-file-name "~/.emacs.d/defaults.el")))
 
+(defun treemacs-project-toggle ()
+  "Toggle and add the current project to treemacs if not already added."
+  (interactive)
+  (if (eq (treemacs-current-visibility) 'visible)
+      (delete-window (treemacs-get-local-window))
+    (let ((path (projectile-ensure-project (projectile-project-root)))
+          (name (projectile-project-name)))
+      (unless (treemacs-current-workspace)
+        (treemacs--find-workspace))
+      (treemacs-do-add-project-to-workspace path name)
+      (treemacs-select-window))))
+
 (declare-prefixes
  "a"   "applications"
  "b"   "buffers"
@@ -90,12 +103,15 @@
  ;; git
  "gs" 'magit-status
  ;; projects
- "pt" 'neotree-toggle
+ "pt" 'treemacs-project-toggle
+ "ps" 'projectile-switch-project
+ "pf" 'counsel-projectile-ag
  ;; quit
  "qr" 'restart-emacs  )
 
 (set-keys-hidden
  ;; winum
+ "0" 'treemacs-select-window
  "1" 'winum-select-window-1
  "2" 'winum-select-window-2
  "3" 'winum-select-window-3
