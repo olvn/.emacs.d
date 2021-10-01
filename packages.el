@@ -205,6 +205,14 @@
   :ensure t
   :defer t)
 
+(use-package undo-tree
+  :ensure t
+  :after evil
+  :diminish
+  :config
+  (evil-set-undo-system 'undo-tree)
+  (global-undo-tree-mode 1))
+
 (provide 'packages)
 
 ;;; packages.el ends here
