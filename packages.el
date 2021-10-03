@@ -57,7 +57,9 @@
 (use-package ivy
   :ensure t
   :init
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (setq ivy-re-builders-alist '((counsel-projectile-ag . ivy--regex-plus)
+				(counsel-ag . ivy--regex-plus)
+				(t . ivy--regex-fuzzy)))
   :config
   (ivy-mode 1))
 

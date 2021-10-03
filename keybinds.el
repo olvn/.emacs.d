@@ -92,6 +92,7 @@
  "bp"  'previous-buffer
  "bn"  'next-buffer
  "bs"  'switch-to-buffer
+ "br"  'rename-buffer
  ;; config
  "ci" 'open-init
  "cp" 'open-packages
@@ -99,7 +100,7 @@
  "cd" 'open-defaults
  "ct" 'counsel-load-theme
  ;; files
- "ff" 'counsel-find-file
+ "ff" 'counsel-projectile-find-file
  ;; git
  "gs" 'magit-status
  ;; projects
