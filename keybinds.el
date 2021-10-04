@@ -101,6 +101,7 @@
  "ct" 'counsel-load-theme
  ;; files
  "ff" 'counsel-projectile-find-file
+ "fs" 'swiper-isearch
  ;; git
  "gs" 'magit-status
  ;; projects
