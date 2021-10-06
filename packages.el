@@ -51,7 +51,8 @@
 (use-package company
   :ensure t
   :init
-  (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-dabbrev-downcase nil))
 
 ;; Ivy & friends
 (use-package ivy
@@ -86,10 +87,10 @@
 (use-package lispy
   :ensure t)
 
-(use-package lispyville
-  :config
-  (lispyville-set-key-theme '(operators c-w additional slurp/barf-cp))
-  (add-hook 'lispy-mode-hook #'lispyville-mode))
+;; (use-package lispyville
+;;   :config
+;;   (lispyville-set-key-theme '(operators c-w additional slurp/barf-cp))
+;;   (add-hook 'lispy-mode-hook #'lispyville-mode))
 
 ;; Project management
 (use-package projectile
@@ -138,8 +139,9 @@
 
 (use-package clojure-mode
   :ensure t
-  :init
-  (add-hook 'clojure-mode-hook #'lispy-mode))
+  ;; :init
+ ;; (add-hook 'clojure-mode-hook #'lispy-mode)
+  )
 
 (use-package cider
   :ensure t)
