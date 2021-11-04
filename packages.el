@@ -25,8 +25,8 @@
   :ensure t)
 
 (use-package acme-theme
-  :ensure t)
 
+ :ensure t)
 (use-package evil
   :ensure t
   :init
@@ -148,7 +148,12 @@
 
 (use-package org
   :mode (("\\.org$" . org-mode))
-  :ensure org-plus-contrib)
+  :ensure org-plus-contrib
+  :config
+  (setq org-capture-templates
+      '(("w" "Work todo" entry (file+headline "~/work/org/composer.org" "small things")
+         "* TODO %?\n  %i\n")
+        )))
 
 (use-package magit
   :ensure t)

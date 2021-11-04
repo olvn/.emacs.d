@@ -61,6 +61,14 @@
   (interactive)
   (find-file (expand-file-name "~/.emacs.d/defaults.el")))
 
+(defun open-work-todos ()
+  (interactive)
+  (find-file-other-window (expand-file-name "~/work/org/composer.org")))
+
+(defun capture-work-todo ()
+  (interactive)
+  (org-capture nil "w"))
+
 (defun treemacs-project-toggle ()
   "Toggle and add the current project to treemacs if not already added."
   (interactive)
@@ -88,6 +96,7 @@
  "SPC" 'counsel-M-x
  ;; shell
  "!"   'shell-command
+ ":"   'eshell
  ;; buffers
  "bp"  'previous-buffer
  "bn"  'next-buffer
@@ -104,6 +113,9 @@
  "fs" 'swiper-isearch
  ;; git
  "gs" 'magit-status
+ ;; org
+ "ocw" 'capture-work-todo
+ "otw" 'open-work-todos
  ;; projects
  "pt" 'treemacs-project-toggle
  "ps" 'projectile-switch-project
@@ -174,6 +186,7 @@
 
 (set-keys-for-major-mode 'clojure-mode-map
 			 ;; jack
+			 "c" 'cider-connect-cljs
 			 "j" 'cider-jack-in
 			 "q" 'cider-quit
 			 "!" 'cider-drink-a-sip
